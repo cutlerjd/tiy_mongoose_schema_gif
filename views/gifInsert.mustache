@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+    <h1>INSERT A GIF!</h1>
+    <form action="insert" method="post">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name"><br>
+        <label for="url">URL: </label>
+        <input type="url" name="url" id="name"><br>
+        <input type="checkbox" name="NSFW" value="true" checked>NSFW<br>
+        <fieldset>
+            <legend>File</legend>
+            <label for="size">Size in MB: </label>
+            <input type="number" name="size" id="size"><br>
+            <label for="type">Type of File</label>
+            <select name="type" id="type">
+                <option value="gif" selected>GIF</option>
+                <option value="sprite">Sprite</option>
+                <option value="html5">HTML5</option>
+            </select><br>
+            <label for="length">Time (in seconds): </label>
+            <input type="number" name="length" id="length">
+        </fieldset>
+        <label for="tags">Tags (space separated): </label>
+        <input type="text" name="tags" id="tags"><br>
+        <label for="source">Source of GIF</label>
+        <input type="text" name="source" id="source"><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
