@@ -4,11 +4,11 @@ const path = require('path')
 const mustacheExpress = require('mustache-express');
 const indexRouter = require('./routes/indexRoute')
 const aboutRouter = require('./routes/aboutRoute')
+const gifRouter = require('./routes/gifRoute')
 const session = require('express-session')
 const bodyParser = require('body-parser')
 
 //Basic body parser settings
-app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 //Rendering with mustache
@@ -29,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'static')))
 //Use the routes files.
 app.use('/', indexRouter);
 app.use('/about', aboutRouter);
+app.use('/gif', gifRouter);
 
 app.listen(3000, function(){
   console.log("App running on port 3000")
