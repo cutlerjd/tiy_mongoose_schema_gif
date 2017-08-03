@@ -15,18 +15,7 @@ function insertGif(json,cb){
   .catch(function(error){
     console.log("There was an error",error)
   })
-  
 }
-
-
-getAllGifs(console.log)
-// gif.save()
-//   .then(function (result) {
-//     console.log("success",result)
-//   })
-//   .catch(function (error) {
-//     console.log("error:",error)
-//   })
 
 module.exports = {
     getAllGifs : getAllGifs,
