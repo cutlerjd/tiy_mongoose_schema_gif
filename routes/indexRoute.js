@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const gifHandler = require('../models/gifHandler.js')
 
 router.get('/', function (req, res) {
-  res.render("index", {appType : "Express"});
+  gifHandler.getAllGifs(function (gifs){
+  res.render("index", { gifs: gifs });
+  })
 });
 
 module.exports = router;
