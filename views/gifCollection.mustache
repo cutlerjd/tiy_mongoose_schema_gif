@@ -7,8 +7,26 @@
 </head>
 <body>
   <h1>A GIF PAGE!</h1>
-  {{#gifs}}
-  <h2>{{name}}</h2>
+{{#gifs}}
+  <div>
+    <h2>{{name}}</h2>
+      <img src="{{url}}">
+      {{#nsfw}}
+      <b>NSFW</b>
+      {{/nsfw}}
+      <ul>
+          <li>File Size: {{file.size}} mb</li>
+          <li>File type: {{file.type}}</li>
+          <li>Gif Length: {{file.length}} seconds</li>
+          <li>Source: {{source}}</li>
+      </ul>
+        <h3>Tags</h3>
+        <ul>
+            {{#tags}}
+            <li>{{.}}</li>
+            {{/tags}}
+        </ul>
+  </div>
   {{/gifs}}
 </body>
 </html>
