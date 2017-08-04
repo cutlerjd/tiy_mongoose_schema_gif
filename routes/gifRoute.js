@@ -15,7 +15,7 @@ router.post('/insert', function(req, res, next){
   req.body.tags = req.body.tags.split(" ")
   console.log(req.body)
   gifHandler.insertGif(req.body,function(){
-    res.redirect("/gifCollection")
+    res.redirect("gifCollection")
   })
 })
 router.get("/remove", function(req,res,next){
@@ -27,7 +27,10 @@ router.post("/delete", function(req,res,next){
   if( typeof req.body.name === 'string' ) {
     req.body.name = [ req.body.name ];
 }
-  console.log(req.body)
-  res.redirect("remove")
+  gifHandler.removeGif(req.body.name, function(result){
+    console.log(result)
+    res.redirect("remove")
+  })
+  
 })
 module.exports = router;

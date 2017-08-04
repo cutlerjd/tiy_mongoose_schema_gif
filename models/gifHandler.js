@@ -16,16 +16,24 @@ function insertGif(json,cb){
     console.log("There was an error",error)
   })
 }
-// function removeGif(jsonArray,cb){
-//     let query = {$or:[]}
-//     query.queryArray = []
-//     jsonArray.forEach(item){
-//         queryArray.push({name:item});
-//     }
-//     console.log(queryArray)
-//     console.log("{ $or:" + queryArray + "}")
-// }
+function removeGif(jsonArray,cb){
+    let query = {$or:[]}
+    let queryArray = [];
+    jsonArray.forEach(function(item){
+        queryArray.push({name:item});
+    })
+    //console.log(queryArray)
+    query.$or = queryArray
+    //console.log("{ $or:" + queryArray + "}")
+    console.log(query)
+    GifModel.deleteMany(query)
+    .then(cb)
+    .catch(function(error){
+        console.log("error",error)
+    })
+}
 module.exports = {
     getAllGifs : getAllGifs,
-    insertGif: insertGif
+    insertGif: insertGif,
+    removeGif: removeGif
 }
