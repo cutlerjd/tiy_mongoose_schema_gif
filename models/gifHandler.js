@@ -22,10 +22,7 @@ function removeGif(jsonArray,cb){
     jsonArray.forEach(function(item){
         queryArray.push({name:item});
     })
-    //console.log(queryArray)
     query.$or = queryArray
-    //console.log("{ $or:" + queryArray + "}")
-    console.log(query)
     GifModel.deleteMany(query)
     .then(cb)
     .catch(function(error){
