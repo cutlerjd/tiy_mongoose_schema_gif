@@ -16,7 +16,15 @@ function insertGif(json,cb){
     console.log("There was an error",error)
   })
 }
-
+// function removeGif(jsonArray,cb){
+//     let query = {$or:[]}
+//     query.queryArray = []
+//     jsonArray.forEach(item){
+//         queryArray.push({name:item});
+//     }
+//     console.log(queryArray)
+//     console.log("{ $or:" + queryArray + "}")
+// }
 module.exports = {
     getAllGifs : getAllGifs,
     insertGif: insertGif

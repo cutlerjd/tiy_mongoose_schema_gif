@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gif Collection</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  <h1>Select Gif to remove</h1>
+  <form action="delete" method="post">
+      <button type="submit">REMOVE SELECTED</button>
+  {{#gifs}}
+  <div>
+      <input type="checkbox" name="name" value="{{name}}">{{name}}<br>
+      <img src="{{url}}">
+      {{#nsfw}}
+      <b>NSFW</b>
+      {{/nsfw}}
+      <ul>
+          <li>File Size: {{file.size}} mb</li>
+          <li>File type: {{file.type}}</li>
+          <li>Gif Length: {{file.length}} seconds</li>
+          <li>Source: {{source}}</li>
+      </ul>
+        <h3>Tags</h3>
+        <ul>
+            {{#tags}}
+            <li>{{.}}</li>
+            {{/tags}}
+        </ul>
+  </div>
+  {{/gifs}}
+  </form>
+</body>
+</html>

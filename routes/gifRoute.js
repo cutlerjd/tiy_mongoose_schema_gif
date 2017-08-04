@@ -19,6 +19,15 @@ router.post('/insert', function(req, res, next){
   })
 })
 router.get("/remove", function(req,res,next){
-  res.send("Coming soon")
+  gifHandler.getAllGifs(function (gifs){
+  res.render("removeGif", { gifs: gifs });
+  })
+})
+router.post("/delete", function(req,res,next){
+  if( typeof req.body.name === 'string' ) {
+    req.body.name = [ req.body.name ];
+}
+  console.log(req.body)
+  res.redirect("remove")
 })
 module.exports = router;
