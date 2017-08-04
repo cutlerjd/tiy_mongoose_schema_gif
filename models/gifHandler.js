@@ -1,7 +1,7 @@
 const GifModel = require('./gifModel.js')
 
 function getAllGifs(callback){
-    GifModel.find({})
+    GifModel.find({}).where({"active":true})
     .then(callback)
     .catch(function(error){
         console.log("There was an error", error)
@@ -23,7 +23,7 @@ function removeGif(jsonArray,cb){
         queryArray.push({name:item});
     })
     query.$or = queryArray
-    GifModel.deleteMany(query)
+    GifModel.updateMany(query,{"active":false})
     .then(cb)
     .catch(function(error){
         console.log("error",error)

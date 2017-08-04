@@ -12,7 +12,8 @@ const gifSchema = new mongoose.Schema({
         length: { type: String }
     },
     tags: [String],
-    source: {type: String}
+    source: {type: String},
+    active: {type:Boolean, required:true, default:true}
 })
 
 const GifModel = mongoose.model('GifModel', gifSchema);
