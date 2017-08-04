@@ -3,9 +3,7 @@ const router = express.Router();
 const gifHandler = require('../models/gifHandler.js')
 
 router.get('/', function (req, res) {
-  gifHandler.getAllGifs(function (gifs){
-  res.render("index", { gifs: gifs });
-  })
+  res.redirect('gif')
 });
 
 module.exports = router;
